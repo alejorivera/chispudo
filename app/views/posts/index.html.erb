@@ -11,12 +11,12 @@
   <div class="container">
     <div class="col-md-4">
       <h1>1</h1>
-      <h2>Escribe y vota por proyectos para mejorar nuestra comunidad</h2>
+      <h2>Propone y vota por proyectos</h2>
       <p>Este sería más o menos del largo de un tweet o un poquito menos.</p>
     </div>
     <div class="col-md-4">
       <h1>2</h1>
-      <h2>Únete o arma un equipo y participa para solucionar algo</h2>
+      <h2>Únete a un equipo y participa para solucionar algo</h2>
       <p>Este sería más o menos del largo de un tweet o un poquito menos.</p>
     </div>
     <div class="col-md-4">
@@ -29,7 +29,7 @@
 
 
 
-<div class="proyects">
+<section id="proyects">
   <div class="container">
 
 <h1><%= @header_text %></h1>
@@ -62,7 +62,7 @@
     <hr>
 
 <h3>Rising Posts</h3>
-<table>
+<table class="table">
   <% for post in @other_posts %>
     <tr valign="top">
           <td>
@@ -85,4 +85,4 @@
 
     <%= will_paginate @other_posts %>
   </div>
-</div>
+</section>
