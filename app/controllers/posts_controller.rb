@@ -10,7 +10,7 @@ class PostsController < ApplicationController
               when 'new' then 'created_at DESC'
             end
     @success_posts = Post.where(approved: true).paginate(:page => params[:page])
-    @posts = Post.where(approved: nil).paginate(:page => params[:page])
+    @other_posts = Post.where(approved: nil).paginate(:page => params[:page])
 
 
     @header_text = case ordering

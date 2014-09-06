@@ -6,50 +6,14 @@
 
 
 <h3>Success Posts (3+ members)</h3>
-<table>
-  <% for post in @success_posts %>
-    <tr valign="top">
-          <td>
-            <%= link_to "Vote Up", vote_up_path(post), :remote => true %>
-          </td>
-          <td>
-           <%= link_to "Vote Down", vote_down_path(post), :remote => true %>
-          </td>
-          <td>
-            <strong><%= link_to post.title, post_path(post) %></strong>
-            <span id="post-<%= post.id %>" class="vote-count"> <%= pluralize post.vote_count, "point" %></span>
-             posted <%= time_ago_in_words post.created_at %>
-          </td>
-          <td>
-            <%= link_to "Join Team", team_assignments_path(post_id: post.id), method: "post" %>
-          </td>
-    </tr>
-  <% end %>
-</table>
+
+<%= render 'post', posts: @success_posts %>
 
 <hr>
 
 <h3>Rising Posts</h3>
-<table>
-  <% for post in @posts %>
-    <tr valign="top">
-          <td>
-            <%= link_to "Vote Up", vote_up_path(post), :remote => true %>
-          </td>
-          <td>
-           <%= link_to "Vote Down", vote_down_path(post), :remote => true %>
-          </td>
-          <td>
-            <strong><%= link_to post.title, post_path(post) %></strong>
-            <span id="post-<%= post.id %>" class="vote-count"> <%= pluralize post.vote_count, "point" %></span>
-             posted <%= time_ago_in_words post.created_at %>
-          </td>
-          <td>
-            <%= link_to "Join Team", team_assignments_path(post_id: post.id), method: "post" %>
-          </td>
-    </tr>
-  <% end %>
-</table>
 
-<%= will_paginate @posts %>
+<%= render 'post', posts: @other_posts %>
+
+<%= will_paginate @other_posts %>
 
