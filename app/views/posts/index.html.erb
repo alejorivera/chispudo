@@ -18,6 +18,9 @@
             <span id="post-<%= post.id %>" class="vote-count"> <%= post.vote_count %></span>
             points posted <%= time_ago_in_words post.created_at %>
           </td>
+          <td>
+            <%= link_to "Join Team", team_assignments_path(post_id: post.id), method: "post" %>
+          </td>
     </tr>
   <% end %>
 </table>

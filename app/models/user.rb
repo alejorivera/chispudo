@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 
   has_many :posts
   has_many :votes
+  has_many :team_assignments
+  has_many :posts, through: :team_assignments
 
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)

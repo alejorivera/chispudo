@@ -1,5 +1,8 @@
 Chispudo::Application.routes.draw do
+  get "team_assignments/create"
+  get "team_assignments/destroy"
   resources :posts
+  resources :team_assignments, only: [:create, :destroy]
 
   get 'votes/:id/vote_up' => 'votes#vote_up', as: 'vote_up'
   get 'votes/:id/vote_down' => 'votes#vote_down', as: 'vote_down'
