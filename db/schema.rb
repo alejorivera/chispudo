@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140906175053) do
+ActiveRecord::Schema.define(version: 20140906193744) do
 
   create_table "posts", force: true do |t|
     t.string   "title"
@@ -20,16 +20,10 @@ ActiveRecord::Schema.define(version: 20140906175053) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "approved"
   end
 
   create_table "team_assignments", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "post_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "teams", force: true do |t|
     t.integer  "user_id"
     t.integer  "post_id"
     t.datetime "created_at"

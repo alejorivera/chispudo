@@ -9,8 +9,9 @@ class PostsController < ApplicationController
               when 'hot' then 'points DESC'
               when 'new' then 'created_at DESC'
             end
+    @success_posts = Post.where(approved: true).paginate(:page => params[:page])
+    @posts = Post.where("vote_count < 10").paginate(:page => params[:page])
 
-    @posts = Post.paginate(:page => params[:page])
 
     @header_text = case ordering
                     when 'hot' then 'Top rated submissions'
