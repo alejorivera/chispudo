@@ -7,5 +7,9 @@ class Post < ActiveRecord::Base
 	validates :title, presence: true,
  									 length: { maximum: 100 }
 	
-	validates :description, length: { maximum: 500 } 									 
+	validates :description, length: { maximum: 500 } 	
+
+	def team_member_count
+		TeamAssignment.where(post_id: id).count
+	end					 
 end

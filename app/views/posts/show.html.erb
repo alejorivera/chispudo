@@ -22,9 +22,7 @@
 
 <p>
   <strong>Team</strong>
-  <% @post.team_assignments.each do |member| %>
-    <%= member.user_id %>
-  <% end %>
+  <%= @post.team_member_count %>
 
 </p>
 
