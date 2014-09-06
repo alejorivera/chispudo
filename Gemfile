@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -48,3 +48,15 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
+
+gem 'jquery-turbolinks'
+# gem 'tzinfo-data', platforms: [:mingw, :mswin]
+
+group :production do
+ gem 'pg'
+ gem 'rails_12factor'
+end
+
+group :development, :test do
+	gem 'sqlite3'
+end
