@@ -34,56 +34,54 @@
 
 <h1><%= @header_text %></h1>
 
-<%= link_to "Hot", { action: 'index', order: 'hot' } %>
-<%= link_to "New", { action: 'index', order: 'new' } %>
 <%= link_to 'New Post', new_post_path %>
 
 
-    <h3>Success Posts (5+ Team members)</h3>
-    <table>
-      <% for post in @success_posts %>
-        <tr valign="top">
-              <td>
-                <%= link_to "Vote Up", vote_up_path(post), :remote => true %>
-              </td>
-              <td>
-               <%= link_to "Vote Down", vote_down_path(post), :remote => true %>
-              </td>
-              <td>
-                <strong><%= link_to post.title, post_path(post) %></strong>
-                <span id="post-<%= post.id %>" class="vote-count"> <%= pluralize post.vote_count, "point" %></span>
-                 posted <%= time_ago_in_words post.created_at %>
-              </td>
-              <td>
-                <%= link_to "Join Team", team_assignments_path(post_id: post.id), method: "post" %>
-              </td>
-        </tr>
-      <% end %>
-    </table>
+<h3>Success Posts (5+ Team members)</h3>
+<table>
+  <% for post in @success_posts %>
+    <tr valign="top">
+          <td>
+            <%= link_to image_tag('up-arrow.png'), vote_up_path(post), :remote => true %>
+          </td>
+          <td>
+           <%= link_to image_tag('down-arrow.png'), vote_down_path(post), :remote => true %>
+          </td>
+          <td>
+            <strong><%= link_to post.title, post_path(post) %></strong>
+            <span id="post-<%= post.id %>" class="vote-count"> <%= pluralize post.vote_count, "point" %></span>
+             posted <%= time_ago_in_words post.created_at %>
+          </td>
+          <td>
+            <%= link_to "Join Team", team_assignments_path(post_id: post.id), method: "post" %>
+          </td>
+    </tr>
+  <% end %>
+</table>
 
     <hr>
 
-    <h3>Rising Posts</h3>
-    <table>
-      <% for post in @other_posts %>
-        <tr valign="top">
-              <td>
-                <%= link_to "Vote Up", vote_up_path(post), :remote => true %>
-              </td>
-              <td>
-               <%= link_to "Vote Down", vote_down_path(post), :remote => true %>
-              </td>
-              <td>
-                <strong><%= link_to post.title, post_path(post) %></strong>
-                <span id="post-<%= post.id %>" class="vote-count"> <%= pluralize post.vote_count, "point" %></span>
-                 posted <%= time_ago_in_words post.created_at %>
-              </td>
-              <td>
-                <%= link_to "Join Team", team_assignments_path(post_id: post.id), method: "post" %>
-              </td>
-        </tr>
-      <% end %>
-    </table>
+<h3>Rising Posts</h3>
+<table>
+  <% for post in @other_posts %>
+    <tr valign="top">
+          <td>
+            <%= link_to image_tag('up-arrow.png'), vote_up_path(post), :remote => true %>
+          </td>
+          <td>
+           <%= link_to image_tag('down-arrow.png'), vote_down_path(post), :remote => true %>
+          </td>
+          <td>
+            <strong><%= link_to post.title, post_path(post) %></strong>
+            <span id="post-<%= post.id %>" class="vote-count"> <%= pluralize post.vote_count, "point" %></span>
+             posted <%= time_ago_in_words post.created_at %>
+          </td>
+          <td>
+            <%= link_to "Join Team", team_assignments_path(post_id: post.id), method: "post" %>
+          </td>
+    </tr>
+  <% end %>
+</table>
 
     <%= will_paginate @other_posts %>
   </div>
