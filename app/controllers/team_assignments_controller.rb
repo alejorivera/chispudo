@@ -8,7 +8,7 @@ class TeamAssignmentsController < ApplicationController
     	@post.update_attribute :approved, true
     end
 
-    redirect_to post_path(@post_id), notice: "Thank you for helping out!"
+    redirect_to post_path(@post_id), notice: "Gracias por participar!"
   end
 
   def destroy

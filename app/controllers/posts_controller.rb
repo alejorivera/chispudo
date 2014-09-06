@@ -9,8 +9,8 @@ class PostsController < ApplicationController
               when 'hot' then 'points DESC'
               when 'new' then 'created_at DESC'
             end
-    @success_posts = Post.where(approved: true).paginate(:page => params[:page])
-    @other_posts = Post.where(approved: nil).paginate(:page => params[:page])
+    @success_posts = Post.where(approved: true).order('vote_count DESC').paginate(:page => params[:page])
+    @other_posts = Post.where(approved: nil).order('vote_count DESC').paginate(:page => params[:page])
 
 
     @header_text = case ordering
