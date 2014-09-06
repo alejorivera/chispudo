@@ -16,7 +16,7 @@
           </td>
           <td>
             <strong><%= link_to post.title, post_path(post) %></strong>
-            <span id="post<%= post.id.to_s %>"><%= post.vote_count %></span>
+            <span id="post<%= post.id.to_s %>"> <%= post.vote_count %></span>
             points posted <%= time_ago_in_words post.created_at %>
           </td>
       </div> <!-- end post.id -->
