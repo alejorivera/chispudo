@@ -67,7 +67,10 @@ class PostsController < ApplicationController
               when 'hot' then 'points DESC'
               when 'new' then 'created_at DESC'
             end
+            
+    # paginate
     @post_pages, @posts = paginate :posts, order: order, per_page: 20
+
     @header_text = case ordering
                     when 'hot' then 'Top rated submissions'
                     when 'new' then 'Latest submissions'
