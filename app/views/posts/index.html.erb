@@ -7,7 +7,6 @@
 <table>
   <% for post in @posts %>
     <tr valign="top">
-      <div class='post-<%= post.id %>' >
           <td>
             <%= link_to "Vote Up", vote_up_path(post), :remote => true %>
           </td>
@@ -16,10 +15,9 @@
           </td>
           <td>
             <strong><%= link_to post.title, post_path(post) %></strong>
-            <span id="post<%= post.id.to_s %>"> <%= post.vote_count %></span>
+            <span id="post-<%= post.id %>" class="vote-count"> <%= post.vote_count %></span>
             points posted <%= time_ago_in_words post.created_at %>
           </td>
-      </div> <!-- end post.id -->
     </tr>
   <% end %>
 </table>
