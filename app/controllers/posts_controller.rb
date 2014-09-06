@@ -72,14 +72,6 @@ class PostsController < ApplicationController
     end
   end
 
-  def modify_points
-    @post = Post.find(params[:id])
-    @post.update_attribute :vote_count, @post.vote_count + params[:direction].to_i if params[:direction] =~ /[+|-]?1/
-    respond_to do |format|
-      format.js
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post

@@ -1,6 +1,9 @@
 Chispudo::Application.routes.draw do
   resources :posts
 
+  get 'votes/:id/vote_up' => 'votes#vote_up', as: 'vote_up'
+  get 'votes/:id/vote_down' => 'votes#vote_down', as: 'vote_down'
+
   devise_for :users, :controllers => {
     :registrations => "users/registrations",
     :omniauth_callbacks => "users/omniauth_callbacks" 

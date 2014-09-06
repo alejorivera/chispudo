@@ -7,26 +7,19 @@
 <table>
   <% for post in @posts %>
     <tr valign="top">
-      <td>
-        <%= link_to "Up", 
-                          url: { action: 'modify_points',
-                                id: post.id,
-                                direction: 1 },
-                          remote: true %>
-                          <%= link_to "Up", :action => "modify_points", remote: true %>
-      </td>
-      <td>
-        <%= link_to "Down", 
-                          url: { action: 'modify_points',
-                                id: post.id,
-                                direction: -1 },
-                          remote: true %>
-      </td>
-      <td>
-        <strong><%= link_to post.title, post_path(post) %></strong>
-        <span id="post<%= post.id.to_s %>"><%= post.vote_count %></span>
-        points posted <%= time_ago_in_words post.created_at %>
-      </td>
+      <div class='post-<%= post.id %>' >
+          <td>
+            <%= link_to "Vote Up", vote_up_path(post), :remote => true %>
+          </td>
+          <td>
+           <%= link_to "Vote Down", vote_down_path(post), :remote => true %>
+          </td>
+          <td>
+            <strong><%= link_to post.title, post_path(post) %></strong>
+            <span id="post<%= post.id.to_s %>"><%= post.vote_count %></span>
+            points posted <%= time_ago_in_words post.created_at %>
+          </td>
+      </div> <!-- end post.id -->
     </tr>
   <% end %>
 </table>
