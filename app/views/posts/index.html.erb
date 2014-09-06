@@ -48,8 +48,8 @@
           </td>
           <td>
             <strong><%= link_to post.title, post_path(post) %></strong>
-            <span id="post-<%= post.id %>" class="vote-count"> votos</span>
-             publicado <%= time_ago_in_words post.created_at %> ago.
+            <span id="post-<%= post.id %>" class="vote-count"> <%= post.vote_count %></span>
+             votos <br>  publicado <%= time_ago_in_words post.created_at %> ago.
           </td>
           <td>
             <%= link_to "Unete al equipo", team_assignments_path(post_id: post.id), method: "post", class: "button button-primary" %>
@@ -72,8 +72,8 @@
           </td>
           <td>
             <strong><%= link_to post.title, post_path(post) %></strong>
-            <span id="post-<%= post.id %>" class="vote-count"> votos</span>
-             publicado <%= time_ago_in_words post.created_at %> ago.
+            <span id="post-<%= post.id %>" class="vote-count"> <%= post.vote_count %></span>
+             votos <br>  publicado <%= time_ago_in_words post.created_at %> ago.
           </td>
           <td>
             <%= link_to "Unete al equipo", team_assignments_path(post_id: post.id), method: "post", class: "button button-primary" %>
