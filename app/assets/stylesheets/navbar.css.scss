@@ -1,0 +1,103 @@
+
+@media (min-width: 768px){
+    .nav>li>a {
+        margin: 0px 5px;
+    }
+}  
+/*Ends Aligns the navbar to the center*/
+
+@media(min-width:767px) {
+    .navbar {
+        padding: 20px 0;
+        -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
+        -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
+        transition: background .5s ease-in-out,padding .5s ease-in-out;
+        font-size: 20px;
+    }
+
+    .top-nav-collapse {
+        /* Customize the look and feel of the collapsed top nav here */
+        padding: 0;
+    }
+}
+
+.navbar {
+    margin-bottom: 0;
+    border-bottom: none;
+    background-color: rgba(51, 51, 51, .5);
+}
+
+.navbar-brand {
+    margin-top: -3px;
+    padding: 10px 15px;
+}
+
+@media (min-width: 768px){
+    .navbar-brand {
+    margin-top: -5px;
+    }
+}  
+
+.navbar-brand img {
+    height: 40px;
+}
+
+.navbar-brand:focus {
+    outline: 0;
+}
+
+.navbar-toggle {
+    color: #fff;
+}
+
+.navbar-toggle:focus,
+.navbar-toggle:active {
+    outline: 0;
+}
+
+@media(min-width:767px) {
+    .navbar {
+        padding: 20px 0;
+        border-bottom: 0;
+        letter-spacing: 1px;
+        background: 0 0;
+        -webkit-transition: background .2s ease-in-out,padding .5s ease-in-out;
+        -moz-transition: background .2s ease-in-out,padding .5s ease-in-out;
+        transition: background .2s ease-in-out,padding .5s ease-in-out;
+    }
+
+    .top-nav-collapse {
+        padding: 10px;
+        background-color: rgba(51, 51, 51, .5);
+    }
+
+    .navbar-custom.top-nav-collapse {
+        border-bottom: none;
+    }
+}
+
+
+.navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand {
+    font-family: inherit;
+    color: #fff;
+    letter-spacing: -0.01rem;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
+    background-color: transparent;
+    color: #c7c7c7;
+}
+
+.navbar-default .navbar-toggle {
+    border: none;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff;
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background-color: rgba(255, 255, 255, 0.3);
+}
