@@ -67,7 +67,8 @@ class PostsController < ApplicationController
               when 'hot' then 'points DESC'
               when 'new' then 'created_at DESC'
             end
-    @post_pages, @posts = paginate :posts, order: order, per_page: 20
+    @posts = Post.paginate(:page => params[:page])
+    # @post_pages, @posts = paginate :posts, order: order, per_page: 20
     @header_text = case ordering
                     when 'hot' then 'Top rated submissions'
                     when 'new' then 'Latest submissions'
@@ -78,6 +79,9 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.update_attribute :vote_count, @post.vote_count + params[:direction].to_i if params[:direction] =~ /[+|-]?1/
     render_text @post.vote_count
+    respond_to do |format|
+        format.js { render layout: false }
+    end
   end
 
   private

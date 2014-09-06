@@ -8,16 +8,29 @@
 	<% for post in @posts %>
 		<tr valign = "top">
 			<td>
-				<%= link_to_remote "Up", 
-													url: (action: 'modify_points',
+				<%= link_to "Up", 
+													url: { action: 'modify_points',
 																id: post.id,
-																direction: 1 ),
-													update: "post" + post.id.to_s %>
+																direction: 1 },
+													update: "post" + post.id.to_s,
+													remote: true %>
 			</td>
 			<td>
-				<%= link_to_remote "Down", 
-													url: (action: 'modify_points',
+				<%= link_to "Down", 
+													url: { action: 'modify_points',
 																id: post.id,
-																direction: -1 ),
-													update: "post" + post.id.to_s %>
+																direction: -1 },
+													update: "post" + post.id.to_s,
+													remote: true %>
 			</td>
+			<td>
+				<strong><%= link_to post.title, post_path(post) %></strong>
+				<span id="post<%= post.id.to_s %>"><%= post.vote_count %></span>
+				points posted <%= time_ago_in_words post.created_at %>
+			</td>
+		</tr>
+	<% end %>
+</table>
+
+<%= will_paginate @posts %>
+

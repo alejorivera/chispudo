@@ -10,6 +10,7 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 
+gem 'will_paginate'
 gem 'jquery-turbolinks'
 
 gem 'jquery-rails'
