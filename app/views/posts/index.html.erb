@@ -1,33 +1,35 @@
-<h1>Listing posts</h1>
+<h1><%= @header_text %></h1>
+
+<%= link_to "Hot", { action: 'index', order: 'hot' } %>
+<%= link_to "New", { action: 'index', order: 'new' } %>
+<%= link_to 'New Post', new_post_path %>
 
 <table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Vote count</th>
-      <th>User</th>
-      <th></th>
-      <th></th>
-      <th></th>
+  <% for post in @posts %>
+    <tr valign="top">
+      <td>
+        <%= link_to "Up", 
+                          url: { action: 'modify_points',
+                                id: post.id,
+                                direction: 1 },
+                          remote: true %>
+                          <%= link_to "Up", :action => "modify_points", remote: true %>
+      </td>
+      <td>
+        <%= link_to "Down", 
+                          url: { action: 'modify_points',
+                                id: post.id,
+                                direction: -1 },
+                          remote: true %>
+      </td>
+      <td>
+        <strong><%= link_to post.title, post_path(post) %></strong>
+        <span id="post<%= post.id.to_s %>"><%= post.vote_count %></span>
+        points posted <%= time_ago_in_words post.created_at %>
+      </td>
     </tr>
-  </thead>
-
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.description %></td>
-        <td><%= post.vote_count %></td>
-        <td><%= post.user_id %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+  <% end %>
 </table>
 
-<br>
+<%= will_paginate @posts %>
 
-<%= link_to 'New Post', new_post_path %>

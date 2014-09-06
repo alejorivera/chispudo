@@ -4,7 +4,18 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    ordering = params[:order] || "hot"
+    order = case ordering
+              when 'hot' then 'points DESC'
+              when 'new' then 'created_at DESC'
+            end
+
+    @posts = Post.paginate(:page => params[:page])
+
+    @header_text = case ordering
+                    when 'hot' then 'Top rated submissions'
+                    when 'new' then 'Latest submissions'
+                  end
   end
 
   # GET /posts/1
@@ -59,21 +70,6 @@ class PostsController < ApplicationController
       format.html { redirect_to posts_url }
       format.json { head :no_content }
     end
-  end
-
-  def submissions
-    ordering = params[:order] || "hot"
-    order = case ordering
-              when 'hot' then 'points DESC'
-              when 'new' then 'created_at DESC'
-            end
-
-    @posts = Post.paginate(:page => params[:page])
-
-    @header_text = case ordering
-                    when 'hot' then 'Top rated submissions'
-                    when 'new' then 'Latest submissions'
-                  end
   end
 
   def modify_points
