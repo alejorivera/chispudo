@@ -4,7 +4,7 @@ class TeamAssignmentsController < ApplicationController
     @post_id = params[:post_id]
     @post = Post.find(params[:post_id])
     
-    if @post.team_member_count >= 3
+    if @post.team_member_count >= 5
     	@post.update_attribute :approved, true
     end
 
