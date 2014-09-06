@@ -31,12 +31,13 @@
 
 <section id="proyects">
   <div class="container">
-
-<%= link_to 'New Post', new_post_path %>
-
-
+<span class="centered">
+  <%= link_to 'New Post', new_post_path, class: "button button-primary" %>
+</span>
+<br><br>
+<div class="row">
 <h3 style="margin-bottom: 30px;"><strong>Proyectos exitosos (5+ Chispudos apuntados)</strong></h3>
-<table>
+<table class="table">
   <% for post in @success_posts %>
     <tr valign="top">
           <td>
@@ -51,7 +52,7 @@
              publicado <%= time_ago_in_words post.created_at %> ago.
           </td>
           <td>
-            <%= link_to "Unirse al equipo", team_assignments_path(post_id: post.id), method: "post" %>
+            <%= link_to "Unirse al equipo", team_assignments_path(post_id: post.id), method: "post", class: "button button-primary" %>
           </td>
     </tr>
   <% end %>
@@ -75,11 +76,14 @@
              publicado <%= time_ago_in_words post.created_at %> ago.
           </td>
           <td>
-            <%= link_to "Unirse al equipo", team_assignments_path(post_id: post.id), method: "post" %>
+            <%= link_to "Unirse al equipo", team_assignments_path(post_id: post.id), method: "post", class: "button button-primary" %>
           </td>
     </tr>
   <% end %>
 </table>
+
+</div> <!-- end row -->
+
 
     <%= will_paginate @other_posts %>
   </div>
