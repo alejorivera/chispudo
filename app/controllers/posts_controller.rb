@@ -69,7 +69,6 @@ class PostsController < ApplicationController
             end
 
     @posts = Post.paginate(:page => params[:page])
-    # @post_pages, @posts = paginate :posts, order: order, per_page: 20
 
     @header_text = case ordering
                     when 'hot' then 'Top rated submissions'
@@ -80,9 +79,8 @@ class PostsController < ApplicationController
   def modify_points
     @post = Post.find(params[:id])
     @post.update_attribute :vote_count, @post.vote_count + params[:direction].to_i if params[:direction] =~ /[+|-]?1/
-    render_text @post.vote_count
     respond_to do |format|
-        format.js { render layout: false }
+      format.js
     end
   end
 
