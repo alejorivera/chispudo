@@ -1,5 +1,6 @@
 Chispudo::Application.routes.draw do
   resources :posts
+  get 'submissions' => 'posts#submissions', as: :submissions
 
   devise_for :users, :controllers => {
     :registrations => "users/registrations",

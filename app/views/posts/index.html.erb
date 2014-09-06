@@ -1,9 +1,4 @@
-<h1><%= @header_text %></h1>
-
-<%= link_to "Hot", { action: 'posts', order: 'hot' } %>
-<%= link_to "New", { action: 'posts', order: 'new' } %>
-<%= link_to 'New Post', new_post_path %>
-
+<h1>Listing posts</h1>
 
 <table>
   <thead>
@@ -35,4 +30,4 @@
 
 <br>
 
-
+<%= link_to 'New Post', new_post_path %>
