@@ -30,6 +30,13 @@ ActiveRecord::Schema.define(version: 20140906193744) do
     t.datetime "updated_at"
   end
 
+  create_table "teams", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
